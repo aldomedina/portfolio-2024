@@ -16,4 +16,20 @@
     padding: 0;
     overflow: hidden;
   }
+  .annotation {
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    font-size: 2vw;
+    font-weight: 300;
+    background: black;
+    color: white;
+    padding: 2px;
+    letter-spacing: 1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+  }
 }

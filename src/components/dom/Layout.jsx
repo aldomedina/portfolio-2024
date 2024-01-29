@@ -2,6 +2,7 @@
 
 import { useRef } from 'react'
 import dynamic from 'next/dynamic'
+import Nav from './Nav'
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: false })
 
 const Layout = ({ children }) => {
@@ -17,8 +18,10 @@ const Layout = ({ children }) => {
         overflow: 'auto',
         touchAction: 'auto',
       }}
+      className='bg-gray-200 text-gray-950	'
     >
       {children}
+
       <Scene
         style={{
           position: 'fixed',
@@ -31,6 +34,7 @@ const Layout = ({ children }) => {
         eventSource={ref}
         eventPrefix='client'
       />
+      <Nav />
     </div>
   )
 }

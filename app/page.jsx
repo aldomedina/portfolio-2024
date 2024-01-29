@@ -1,80 +1,112 @@
 'use client'
 
+import MarqueeBaner from '@/components/dom/MarqueeBaner'
+import Spinner from '@/components/dom/Spinner'
+import Toolbox from '@/components/dom/Toolbox'
+import useLandingStore from '@/stores/landingStore'
 import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
-const Logo = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Logo), { ssr: false })
-const Dog = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Dog), { ssr: false })
-const Duck = dynamic(() => import('@/components/canvas/Examples').then((mod) => mod.Duck), { ssr: false })
+const CardsScene = dynamic(() => import('@/components/canvas/CardsScene').then((mod) => mod.CardsScene), { ssr: false })
+const Face = dynamic(() => import('@/components/canvas/Face').then((mod) => mod.Face), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
-  loading: () => (
-    <div className='flex h-96 w-full flex-col items-center justify-center'>
-      <svg className='-ml-1 mr-3 h-5 w-5 animate-spin text-black' fill='none' viewBox='0 0 24 24'>
-        <circle className='opacity-25' cx='12' cy='12' r='10' stroke='currentColor' strokeWidth='4' />
-        <path
-          className='opacity-75'
-          fill='currentColor'
-          d='M4 12a8 8 0 0 1 8-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 0 1 4 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'
-        />
-      </svg>
-    </div>
-  ),
+  loading: () => <Spinner />,
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
 export default function Page() {
+  const activeProject = useLandingStore((s) => s.activeProject)
   return (
     <>
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center md:flex-row  lg:w-4/5'>
-        {/* jumbo */}
-        <div className='flex w-full flex-col items-start justify-center p-12 text-center md:w-2/5 md:text-left'>
-          <p className='w-full uppercase'>Next + React Three Fiber</p>
-          <h1 className='my-4 text-5xl font-bold leading-tight'>Next 3D Starter</h1>
-          <p className='mb-8 text-2xl leading-normal'>A minimalist starter for React, React-three-fiber and Threejs.</p>
+      <div className='flex h-dvh flex-col'>
+        <div className='relative h-5/6  overflow-hidden sm:h-4/5'>
+          <div className='absolute left-4 top-0 flex size-full items-end  font-mono  font-medium uppercase leading-none    '>
+            {activeProject ? (
+              <span className='text-[21vw] lg:text-[16vw]'>{activeProject}</span>
+            ) : (
+              <span className='text-[21vw] lg:text-[13vw]'>
+                FEATURED <br className='block lg:hidden' /> PROJECTS
+              </span>
+            )}
+          </div>
         </div>
-
-        <div className='w-full text-center md:w-3/5'>
-          <View className='flex h-96 w-full flex-col items-center justify-center'>
+        <div className='mx-auto flex w-full flex-auto justify-between gap-8 p-4 text-sm leading-5 lg:gap-16 lg:p-8 2xl:w-4/5 2xl:text-lg'>
+          <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
+            <p>
+              <strong>Above</strong> is presented a selection of web based projects that I’ve worked during the last
+              years. Click on them to know more.
+            </p>
+          </div>
+          <div className='flex-1 sm:max-w-52 2xl:max-w-72'>
+            <p>
+              <strong>Creative technologist</strong> with programming expertise, experienced in agile teams, and linked
+              to the educational sector.
+            </p>
+          </div>
+          <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
+            <p>
+              <strong>Skilled</strong> in web development, creative coding, 3D design, data management, and various
+              frameworks and tools.
+            </p>
+          </div>
+          <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
+            <p>
+              <strong>Based</strong> in Santiago de Chile. Open to work. Available for remote work.
+            </p>
+          </div>
+        </div>
+        <div className='flex flex-auto justify-center gap-2 pb-2 text-right'>
+          <div className='animate-bounce'>↓</div>
+        </div>
+        <div className='absolute left-0 top-0 size-full'>
+          <View className='relative h-full'>
             <Suspense fallback={null}>
-              <Logo route='/blob' scale={0.6} position={[0, 0, 0]} />
+              <CardsScene scale={2} position={[0, 0, 0]} />
               <Common />
             </Suspense>
           </View>
         </div>
       </div>
-
-      <div className='mx-auto flex w-full flex-col flex-wrap items-center p-12 md:flex-row  lg:w-4/5'>
-        {/* first row */}
-        <div className='relative h-48 w-full py-6 sm:w-1/2 md:my-12 md:mb-40'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Events are propagated</h2>
-          <p className='mb-8 text-gray-600'>Drag, scroll, pinch, and rotate the canvas to explore the 3D scene.</p>
+      <div className='flex gap-8 bg-gray-950 p-2 font-mono text-[10vw] leading-none text-gray-100	'>
+        <MarqueeBaner />
+      </div>
+      <div className='min-h-dvh  bg-gray-950	p-4 text-gray-100 lg:p-8		'>
+        <div className='mx-auto flex flex-col justify-between gap-32  lg:flex-row xl:gap-64 2xl:w-4/5'>
+          <div className='basis-1/3'>
+            <span className='font-normal'>
+              <strong>Creative Technologist</strong> positioned at the intersections of engineering, art, and design.
+              With 5 years of experience in the field of programming, I have applied my knowledge to design interfaces
+              and program data visualizations that facilitate informed decision-making, as well as in the development
+              and assembly of digital art works. In addition, I have team experience utilizing agile methodologies,
+              specifically SCRUM, in web app development. On the other hand, my career has been closely linked to the
+              educational sector, from the development of public policies to programmatic design and classroom work.
+            </span>
+          </div>
+          <div className='flex basis-2/3 justify-between gap-8'>
+            <Toolbox />
+          </div>
         </div>
-        <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
-          <View orbit className='relative h-full  sm:h-48 sm:w-full'>
-            <Suspense fallback={null}>
-              <Dog scale={2} position={[0, -1.6, 0]} rotation={[0.0, -0.3, 0]} />
-              <Common color={'lightpink'} />
-            </Suspense>
-          </View>
-        </div>
-        {/* second row */}
-        <div className='relative my-12 h-48 w-full py-6 sm:w-1/2 md:mb-40'>
-          <View orbit className='relative h-full animate-bounce sm:h-48 sm:w-full'>
-            <Suspense fallback={null}>
-              <Duck route='/blob' scale={2} position={[0, -1.6, 0]} />
-              <Common color={'lightblue'} />
-            </Suspense>
-          </View>
-        </div>
-        <div className='w-full p-6 sm:w-1/2'>
-          <h2 className='mb-3 text-3xl font-bold leading-none text-gray-800'>Dom and 3D are synchronized</h2>
-          <p className='mb-8 text-gray-600'>
-            3D Divs are renderer through the View component. It uses gl.scissor to cut the viewport into segments. You
-            tie a view to a tracking div which then controls the position and bounds of the viewport. This allows you to
-            have multiple views with a single, performant canvas. These views will follow their tracking elements,
-            scroll along, resize, etc.
-          </p>
+      </div>
+      <div className='relative overflow-hidden bg-gray-950 p-4 pb-8	text-gray-100 lg:p-8'>
+        <View className='pointer-events-none absolute bottom-[-60%] left-[-10%]  aspect-[0.46] w-1/2 lg:bottom-[-80%]	'>
+          <Suspense fallback={null}>
+            <Face scale={0.2} position={[0, -1, 0]} />
+          </Suspense>
+        </View>
+        <div className='mx-auto flex font-mono text-[9.5vw] leading-none lg:text-[7.5vw] xl:gap-64 2xl:w-4/5'>
+          <div className='basis-1/3'></div>
+          <div className='basis-2/3 text-right'>
+            REACH OUT TROUGH{' '}
+            <a
+              href='https://www.linkedin.com/in/aldo-medina-z/'
+              target='_blank'
+              className='underline underline-offset-8'
+              rel='noreferrer noopener'
+            >
+              LINKEDIN
+            </a>
+          </div>
         </div>
       </div>
     </>
