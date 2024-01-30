@@ -8,6 +8,12 @@ import dynamic from 'next/dynamic'
 import { Suspense } from 'react'
 
 const CardsScene = dynamic(() => import('@/components/canvas/CardsScene').then((mod) => mod.CardsScene), { ssr: false })
+const CarouselScene = dynamic(
+  () => import('@/components/canvas/CardsScene/CarouselScene').then((mod) => mod.CarouselScene),
+  {
+    ssr: false,
+  },
+)
 const Face = dynamic(() => import('@/components/canvas/Face').then((mod) => mod.Face), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -21,14 +27,10 @@ export default function Page() {
     <>
       <div className='flex h-dvh flex-col'>
         <div className='relative h-5/6  overflow-hidden sm:h-4/5'>
-          <div className='absolute left-4 top-0 flex size-full items-end  font-mono  font-medium uppercase leading-none    '>
-            {activeProject ? (
-              <span className='text-[21vw] lg:text-[16vw]'>{activeProject}</span>
-            ) : (
-              <span className='text-[21vw] lg:text-[13vw]'>
-                FEATURED <br className='block lg:hidden' /> PROJECTS
-              </span>
-            )}
+          <div className='absolute left-4 top-0  hidden size-full  items-end  font-mono font-medium uppercase  leading-none lg:flex	  '>
+            <span className='text-[21vw] lg:text-[13vw]'>
+              FEATURED <br className='block lg:hidden' /> PROJECTS
+            </span>
           </div>
         </div>
         <div className='mx-auto flex w-full flex-auto justify-between gap-8 p-4 text-sm leading-5 lg:gap-16 lg:p-8 2xl:w-4/5 2xl:text-lg'>
@@ -60,9 +62,15 @@ export default function Page() {
           <div className='animate-bounce'>↓</div>
         </div>
         <div className='absolute left-0 top-0 size-full'>
-          <View className='relative h-full'>
+          <View className='relative hidden h-full lg:block'>
             <Suspense fallback={null}>
               <CardsScene scale={2} position={[0, 0, 0]} />
+              <Common />
+            </Suspense>
+          </View>
+          <View className='relative block h-full lg:hidden'>
+            <Suspense fallback={null}>
+              <CarouselScene scale={2} position={[0, 0, 0]} />
               <Common />
             </Suspense>
           </View>
@@ -89,15 +97,9 @@ export default function Page() {
         </div>
       </div>
       <div className='relative overflow-hidden bg-gray-950 p-4 pb-8	text-gray-100 lg:p-8'>
-        <View className='pointer-events-none absolute bottom-[-60%] left-[-10%]  aspect-[0.46] w-1/2 lg:bottom-[-80%]	'>
-          <Suspense fallback={null}>
-            <Face scale={0.2} position={[0, -1, 0]} />
-          </Suspense>
-        </View>
         <div className='mx-auto flex font-mono text-[9.5vw] leading-none lg:text-[7.5vw] xl:gap-64 2xl:w-4/5'>
-          <div className='basis-1/3'></div>
-          <div className='basis-2/3 text-right'>
-            REACH OUT TROUGH{' '}
+          <div className='text-right'>
+            REACH OUT ON{' '}
             <a
               href='https://www.linkedin.com/in/aldo-medina-z/'
               target='_blank'

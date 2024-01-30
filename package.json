@@ -21,6 +21,7 @@
     "@react-three/drei": "^9.92.7",
     "@react-three/fiber": "^8.15.12",
     "glsl-random": "^0.0.5",
+    "lamina": "^1.1.23",
     "maath": "^0.10.7",
     "next": "^14.0.4",
     "react": "^18.2.0",

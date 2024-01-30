@@ -1,15 +1,18 @@
 import * as THREE from 'three'
 import React, { Suspense, useEffect, useRef, useState } from 'react'
 import { Html, RoundedBox, useCursor } from '@react-three/drei'
-import { VideoMaterial } from './VideoMaterial'
+import { FallbackMaterial, VideoMaterial } from './VideoMaterial'
 import { useRouter } from 'next/navigation'
-import { useFrame } from '@react-three/fiber'
+import { useFrame, extend } from '@react-three/fiber'
 import { lerp } from 'three/src/math/MathUtils'
 import useLandingStore from '@/stores/landingStore'
+import { geometry } from 'maath'
+import Spinner from '@/components/dom/Spinner'
+extend(geometry)
 
 const ELAPSED_TIME = 3500
 
-const Card = ({ url, scale, route, positions, ...props }) => {
+const Card = ({ imgTexture = false, url, scale, route, positions, ...props }) => {
   const setActiveProject = useLandingStore((s) => s.setActiveProject)
 
   const ref = useRef(null)
@@ -28,6 +31,7 @@ const Card = ({ url, scale, route, positions, ...props }) => {
   }, [activeIndex, positions.length])
 
   useFrame((state, delta) => {
+    if (imgTexture) return
     ref.current.position.x = lerp(ref.current.position.x, positions[activeIndex][0], delta * 1.5)
     ref.current.position.y = lerp(ref.current.position.y, positions[activeIndex][1], delta * 1.5)
     ref.current.position.z = lerp(ref.current.position.z, positions[activeIndex][2], delta * 1.5)
@@ -36,7 +40,8 @@ const Card = ({ url, scale, route, positions, ...props }) => {
   return (
     <group
       ref={ref}
-      position={positions[0]}
+      position={imgTexture ? props.position : positions[0]}
+      rotation={imgTexture ? props.rotation : [0, 0, 0]}
       onPointerOver={() => {
         setActiveProject(props.homeDisplay + ' →')
         hover(true)
@@ -51,10 +56,22 @@ const Card = ({ url, scale, route, positions, ...props }) => {
         <meshBasicMaterial color={hovered ? '#ea140c' : '#0D0F11'} />
       </RoundedBox>
       <mesh>
-        <planeGeometry args={[scale[0] - 0.1, scale[1] - 0.1]} />
-        <Suspense fallback={null}>
-          <VideoMaterial url={url} />
-        </Suspense>
+        <roundedPlaneGeometry args={[scale[0] - 0.1, scale[1] - 0.1, imgTexture ? 0.03 : 0.05]} />
+        {imgTexture ? (
+          <Suspense
+            fallback={
+              <Html center>
+                <Spinner />
+              </Html>
+            }
+          >
+            <FallbackMaterial url={props.fallback} />
+          </Suspense>
+        ) : (
+          <Suspense fallback={<FallbackMaterial url={props.fallback} />}>
+            <VideoMaterial url={url} />
+          </Suspense>
+        )}
       </mesh>
     </group>
   )

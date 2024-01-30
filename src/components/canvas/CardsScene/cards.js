@@ -3,6 +3,7 @@ const cards = [
     id: 'pipes',
     homeDisplay: 'playground',
     url: '/videos/pipes-compressed.mp4',
+    fallback: '/img/pipes-fallback.webp',
     ratio: 1,
     positions: [
       [-2.2, 0, -0.4],
@@ -18,6 +19,7 @@ const cards = [
     id: 'chroma',
     homeDisplay: 'playground',
     url: '/videos/chroma.mp4',
+    fallback: '/img/chroma-fallback.webp',
     ratio: 0.5625,
     positions: [
       [1.8, 0, -0.2],
@@ -31,6 +33,7 @@ const cards = [
     id: 'wargames',
     homeDisplay: 'wargames',
     url: '/videos/wargames.mp4',
+    fallback: '/img/wargames-fallback.webp',
     ratio: 1.88,
     positions: [
       [0, 1, 0],
@@ -48,6 +51,7 @@ const cards = [
     id: 'alumni-vis',
     homeDisplay: 'alumni vis',
     url: '/videos/alumni.mp4',
+    fallback: '/img/alumni-fallback.webp',
     ratio: 0.968,
     positions: [
       [1, 1.2, -0.1],
@@ -63,6 +67,7 @@ const cards = [
     id: 'solids',
     homeDisplay: 'solids',
     url: '/videos/solids-ui-compressed.mp4',
+    fallback: '/img/solids-fallback.webp',
     ratio: 1.6,
     positions: [
       [-2, 0.8, -0.3],
