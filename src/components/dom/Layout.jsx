@@ -34,7 +34,7 @@ const Layout = ({ children, lng }) => {
         eventSource={ref}
         eventPrefix='client'
       />
-      <Nav />
+      <Nav lng={lng} />
     </div>
   )
 }
