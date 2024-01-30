@@ -44,7 +44,7 @@ const cards = [
       [-1, -0.4, 0],
     ],
     width: 0.17,
-    route: '/p/wargames',
+    route: '/projects/wargames',
     scale: [2.2445637375950076, 1.1939168816994723, 0.1],
   },
   {
@@ -60,7 +60,7 @@ const cards = [
       [1, -0.3, -0.1],
     ],
     width: 0.14,
-    route: '/p/uai-alumni-vis',
+    route: '/projects/uai-alumni-vis',
     scale: [1.8484642544900063, 1.9095705108367833, 0.1],
   },
   {
@@ -76,7 +76,7 @@ const cards = [
       [-2, -0.8, -0.3],
     ],
     width: 0.14,
-    route: '/p/solids',
+    route: '/projects/solids',
     scale: [1.8484642544900063, 1.1552901590562539, 0.1],
   },
 ]

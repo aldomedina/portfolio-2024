@@ -26,14 +26,14 @@ export default function Page() {
   return (
     <>
       <div className='flex h-dvh flex-col'>
-        <div className='relative h-5/6  overflow-hidden sm:h-4/5'>
-          <div className='absolute left-4 top-0  hidden size-full  items-end  font-mono font-medium uppercase  leading-none lg:flex	  '>
+        <div className='relative  h-4/5 overflow-hidden'>
+          <div className='absolute left-4 top-0 hidden size-full items-end font-mono font-medium uppercase leading-none lg:flex	  '>
             <span className='text-[21vw] lg:text-[13vw]'>
               FEATURED <br className='block lg:hidden' /> PROJECTS
             </span>
           </div>
         </div>
-        <div className='mx-auto flex w-full flex-auto justify-between gap-8 p-4 text-sm leading-5 lg:gap-16 lg:p-8 2xl:w-4/5 2xl:text-lg'>
+        <div className='mx-auto flex w-full flex-auto flex-col justify-between gap-8 p-4 text-sm leading-5 sm:flex-row lg:gap-16 lg:p-8 2xl:w-4/5 2xl:text-lg'>
           <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
             <p>
               <strong>Above</strong> is presented a selection of web based projects that I’ve worked during the last
@@ -46,13 +46,13 @@ export default function Page() {
               to the educational sector.
             </p>
           </div>
-          <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
+          <div className='hidden max-w-52 flex-1 md:block 2xl:max-w-72'>
             <p>
-              <strong>Skilled</strong> in web development, creative coding, 3D design, data management, and various
+              <strong>Skilled</strong> in web development, creative coding, UX/UI design, data management, and various
               frameworks and tools.
             </p>
           </div>
-          <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
+          <div className='hidden max-w-52 flex-1 md:block 2xl:max-w-72'>
             <p>
               <strong>Based</strong> in Santiago de Chile. Open to work. Available for remote work.
             </p>
@@ -62,13 +62,13 @@ export default function Page() {
           <div className='animate-bounce'>↓</div>
         </div>
         <div className='absolute left-0 top-0 size-full'>
-          <View className='relative hidden h-full lg:block'>
+          <View className='relative hidden h-full md:block'>
             <Suspense fallback={null}>
               <CardsScene scale={2} position={[0, 0, 0]} />
               <Common />
             </Suspense>
           </View>
-          <View className='relative block h-full lg:hidden'>
+          <View className='relative block h-full md:hidden'>
             <Suspense fallback={null}>
               <CarouselScene scale={2} position={[0, 0, 0]} />
               <Common />
@@ -79,16 +79,17 @@ export default function Page() {
       <div className='flex gap-8 bg-gray-950 p-2 font-mono text-[10vw] leading-none text-gray-100	'>
         <MarqueeBaner />
       </div>
-      <div className='min-h-dvh  bg-gray-950	p-4 text-gray-100 lg:p-8		'>
+      <div id='me' className='min-h-dvh  bg-gray-950	p-4 text-gray-100 lg:p-8		'>
         <div className='mx-auto flex flex-col justify-between gap-32  lg:flex-row xl:gap-64 2xl:w-4/5'>
           <div className='basis-1/3'>
             <span className='font-normal'>
-              <strong>Creative Technologist</strong> positioned at the intersections of engineering, art, and design.
-              With 5 years of experience in the field of programming, I have applied my knowledge to design interfaces
-              and program data visualizations that facilitate informed decision-making, as well as in the development
-              and assembly of digital art works. In addition, I have team experience utilizing agile methodologies,
-              specifically SCRUM, in web app development. On the other hand, my career has been closely linked to the
-              educational sector, from the development of public policies to programmatic design and classroom work.
+              <strong>Creative Technologist</strong> with a blend of expertise in engineering, art, and design, and five
+              years of hands-on experience in programming. My skill set includes designing user interfaces and crafting
+              data visualizations that empower informed decision-making, as well as contributing to the creation and
+              development of digital artworks. My collaborative experience is also rooted in agile methodologies, with a
+              focus on SCRUM, particularly in the realm of web application development. Additionally, my professional
+              journey has maintained a strong connection to the educational sector, encompassing everything from the
+              development of public policies to the formulation of academic programs and direct classroom involvement.
             </span>
           </div>
           <div className='flex basis-2/3 justify-between gap-8'>
@@ -98,12 +99,12 @@ export default function Page() {
       </div>
       <div className='relative overflow-hidden bg-gray-950 p-4 pb-8	text-gray-100 lg:p-8'>
         <div className='mx-auto flex font-mono text-[9.5vw] leading-none lg:text-[7.5vw] xl:gap-64 2xl:w-4/5'>
-          <div className='text-right'>
+          <div className='text-right '>
             REACH OUT ON{' '}
             <a
               href='https://www.linkedin.com/in/aldo-medina-z/'
               target='_blank'
-              className='underline underline-offset-8'
+              className='underline underline-offset-8 hover:text-[#CCFF00]'
               rel='noreferrer noopener'
             >
               LINKEDIN
