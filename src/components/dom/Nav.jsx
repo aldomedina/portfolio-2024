@@ -1,16 +1,14 @@
 import { useTranslation } from '@/i18n/client'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
-import React, { useState } from 'react'
+import React from 'react'
 import { Trans } from 'react-i18next'
 import LngSwitch from './LngSwitch'
 
-const Nav = ({ lng, path }) => {
+const Nav = ({ lng }) => {
   const { t } = useTranslation(lng, 'nav')
   const router = useRouter()
   const pathname = usePathname()
-
-  const [activeLng, setActiveLng] = useState('eng')
 
   const handleMeClick = () => {
     if (pathname !== '/') {
@@ -40,7 +38,7 @@ const Nav = ({ lng, path }) => {
               </div>
             </Link>
 
-            <div className='m-0 flex hover:text-orange-600' onClick={handleMeClick}>
+            <div className='m-0	 flex cursor-pointer hover:text-orange-600' onClick={handleMeClick}>
               <span className='w-8'>[02]</span> <span className='uppercase'>{t('nav.me')} →</span>
             </div>
           </div>
