@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 import Nav from './Nav'
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: false })
 
-const Layout = ({ children }) => {
+const Layout = ({ children, lng }) => {
   const ref = useRef()
 
   return (

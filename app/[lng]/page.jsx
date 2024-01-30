@@ -21,8 +21,7 @@ const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.
 })
 const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mod.Common), { ssr: false })
 
-export default function Page() {
-  const activeProject = useLandingStore((s) => s.activeProject)
+export default function Page({ params: { lng } }) {
   return (
     <>
       <div className='flex h-dvh flex-col'>

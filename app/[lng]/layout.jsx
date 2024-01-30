@@ -1,6 +1,8 @@
 import { Layout } from '@/components/dom/Layout'
 import { Inter, Barlow_Condensed } from 'next/font/google'
-import '@/global.css'
+import './global.css'
+import { dir } from 'i18next'
+import { languages } from '@/i18n/settings'
 
 export const metadata = {
   title: 'Aldo - Design & Development',
@@ -21,9 +23,13 @@ const condensed = Barlow_Condensed({
   variable: '--font-condensed',
 })
 
-export default function RootLayout({ children }) {
+export async function generateStaticParams() {
+  return languages.map((lng) => ({ lng }))
+}
+
+export default function RootLayout({ children, params: { lng } }) {
   return (
-    <html lang='en' className={`antialiased ${inter.variable} ${condensed.variable}`}>
+    <html lang={lng} dir={dir(lng)} className={`antialiased ${inter.variable} ${condensed.variable}`}>
       {/*
         <head /> will contain the components returned by the nearest parent
         head.tsx. Find out more at https://beta.nextjs.org/docs/api-reference/file-conventions/head
@@ -31,7 +37,7 @@ export default function RootLayout({ children }) {
       <head />
       <body>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
-        <Layout>{children}</Layout>
+        <Layout lng={lng}>{children}</Layout>
       </body>
     </html>
   )
