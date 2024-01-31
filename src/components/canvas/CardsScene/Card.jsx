@@ -10,9 +10,7 @@ import { geometry } from 'maath'
 import Spinner from '@/components/dom/Spinner'
 extend(geometry)
 
-const ELAPSED_TIME = 3500
-
-const Card = ({ imgTexture = false, url, scale, route, positions, ...props }) => {
+const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, ...props }) => {
   const setActiveProject = useLandingStore((s) => s.setActiveProject)
 
   const ref = useRef(null)
@@ -20,7 +18,7 @@ const Card = ({ imgTexture = false, url, scale, route, positions, ...props }) =>
   const [activeIndex, setActiveIndex] = useState(0)
   const [hovered, hover] = useState(false)
   useCursor(hovered)
-
+  const ELAPSED_TIME = fast ? 2000 : 3500
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (activeIndex + 1) % positions.length
@@ -28,13 +26,14 @@ const Card = ({ imgTexture = false, url, scale, route, positions, ...props }) =>
     }, ELAPSED_TIME)
 
     return () => clearInterval(interval)
-  }, [activeIndex, positions.length])
+  }, [activeIndex, positions.length, ELAPSED_TIME])
 
   useFrame((state, delta) => {
     if (imgTexture) return
-    ref.current.position.x = lerp(ref.current.position.x, positions[activeIndex][0], delta * 1.5)
-    ref.current.position.y = lerp(ref.current.position.y, positions[activeIndex][1], delta * 1.5)
-    ref.current.position.z = lerp(ref.current.position.z, positions[activeIndex][2], delta * 1.5)
+    const velocity = fast ? 3 : 1.5
+    ref.current.position.x = lerp(ref.current.position.x, positions[activeIndex][0], delta * velocity)
+    ref.current.position.y = lerp(ref.current.position.y, positions[activeIndex][1], delta * velocity)
+    ref.current.position.z = lerp(ref.current.position.z, positions[activeIndex][2], delta * velocity)
   })
 
   return (
@@ -56,7 +55,7 @@ const Card = ({ imgTexture = false, url, scale, route, positions, ...props }) =>
         <meshBasicMaterial color={hovered ? '#ea140c' : '#0D0F11'} />
       </RoundedBox>
       <mesh>
-        <roundedPlaneGeometry args={[scale[0] - 0.1, scale[1] - 0.1, imgTexture ? 0.03 : 0.05]} />
+        <roundedPlaneGeometry args={[scale[0] - 0.07, scale[1] - 0.07, imgTexture ? 0.03 : 0.06]} />
         {imgTexture ? (
           <Suspense
             fallback={

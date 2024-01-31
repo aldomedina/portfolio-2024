@@ -22,10 +22,12 @@ const Nav = ({ lng }) => {
     <div className='absolute left-0 top-0 w-full font-medium'>
       <div className='mx-auto flex  justify-between  p-4 font-mono lg:px-8 2xl:w-4/5'>
         <div className='select-none '>
-          <div className='mb-4 border-b border-current pb-4 text-2xl sm:border-none'>
-            ALDO — <br className='block lg:hidden' />
-            <Trans i18nKey='title' components={[<br className='block lg:hidden' key='0' />]} t={t} />
-          </div>
+          <Link href='/'>
+            <div className='mb-4 border-b border-current pb-4 text-2xl sm:border-none'>
+              ALDO — <br className='block lg:hidden' />
+              <Trans i18nKey='title' components={[<br className='block lg:hidden' key='0' />]} t={t} />
+            </div>
+          </Link>
           <div className=''>
             <Link href='/'>
               <div className='flex hover:text-orange-600'>

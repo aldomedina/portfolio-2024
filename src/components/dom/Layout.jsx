@@ -3,11 +3,13 @@
 import { useRef } from 'react'
 import dynamic from 'next/dynamic'
 import Nav from './Nav'
+import { Trans } from 'react-i18next'
+import { useTranslation } from '@/i18n/client'
 const Scene = dynamic(() => import('@/components/canvas/Scene'), { ssr: false })
 
 const Layout = ({ children, lng }) => {
   const ref = useRef()
-
+  const { t } = useTranslation(lng, 'home')
   return (
     <div
       ref={ref}
@@ -35,6 +37,21 @@ const Layout = ({ children, lng }) => {
         eventPrefix='client'
       />
       <Nav lng={lng} />
+      <div className='relative overflow-hidden bg-gray-950 p-4 pb-8	text-gray-100 lg:p-8'>
+        <div className='mx-auto flex font-mono text-[9.5vw] leading-none lg:text-[7.5vw] xl:gap-64 2xl:w-4/5'>
+          <div className='text-right '>
+            <Trans i18nKey={t('hero.contact')} />{' '}
+            <a
+              href='https://www.linkedin.com/in/aldo-medina-z/'
+              target='_blank'
+              className='underline underline-offset-8 hover:text-orange-600'
+              rel='noreferrer noopener'
+            >
+              LINKEDIN
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   )
 }

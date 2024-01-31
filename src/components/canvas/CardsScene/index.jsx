@@ -1,13 +1,13 @@
 'use client'
 
 import React from 'react'
-import { Cards } from './CardsGroup'
+import { CardsGroup } from './CardsGroup'
 import { Html } from '@react-three/drei'
 
-const CardsScene = (props) => {
+const CardsScene = ({ cards, fast = false }) => {
   return (
     <>
-      <Cards />
+      <CardsGroup cards={cards} fast={fast} />
     </>
   )
 }

@@ -1,5 +1,6 @@
 'use client'
 
+import { cards } from '@/components/canvas/CardsScene/cards'
 import MarqueeBaner from '@/components/dom/MarqueeBaner'
 import Spinner from '@/components/dom/Spinner'
 import Toolbox from '@/components/dom/Toolbox'
@@ -65,7 +66,7 @@ export default function Page({ params: { lng } }) {
         <div className='absolute left-0 top-0 size-full'>
           <View className='relative hidden h-full md:block'>
             <Suspense fallback={null}>
-              <CardsScene scale={2} position={[0, 0, 0]} />
+              <CardsScene scale={2} position={[0, 0, 0]} cards={cards} />
               <Common />
             </Suspense>
           </View>
@@ -77,10 +78,13 @@ export default function Page({ params: { lng } }) {
           </View>
         </div>
       </div>
-      <div className='flex gap-8 bg-gray-950 p-2 font-mono text-[10vw] leading-none text-gray-100	'>
+      <div className='flex gap-8 bg-gray-950 p-2 font-mono text-4xl leading-none text-gray-100	'>
         <MarqueeBaner />
       </div>
       <div id='me' className='min-h-dvh  bg-gray-950	p-4 text-gray-100 lg:p-8		'>
+        <div className='mb-8 flex flex-col font-mono leading-none'>
+          <span>[02]</span> <span className='ml-[-8px] text-[11vw]'>ME</span>{' '}
+        </div>
         <div className='mx-auto flex flex-col justify-between gap-32  lg:flex-row xl:gap-64 2xl:w-4/5'>
           <div className='basis-1/3'>
             <span className='font-normal'>
@@ -89,21 +93,6 @@ export default function Page({ params: { lng } }) {
           </div>
           <div className='flex basis-2/3 justify-between gap-8'>
             <Toolbox />
-          </div>
-        </div>
-      </div>
-      <div className='relative overflow-hidden bg-gray-950 p-4 pb-8	text-gray-100 lg:p-8'>
-        <div className='mx-auto flex font-mono text-[9.5vw] leading-none lg:text-[7.5vw] xl:gap-64 2xl:w-4/5'>
-          <div className='text-right '>
-            <Trans i18nKey={t('hero.contact')} />{' '}
-            <a
-              href='https://www.linkedin.com/in/aldo-medina-z/'
-              target='_blank'
-              className='underline underline-offset-8 hover:text-[#CCFF00]'
-              rel='noreferrer noopener'
-            >
-              LINKEDIN
-            </a>
           </div>
         </div>
       </div>
