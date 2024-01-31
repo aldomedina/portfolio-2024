@@ -19,10 +19,10 @@ export default function Page() {
   return (
     <>
       <div className='flex  flex-col'>
-        <div className='mx-auto flex h-96 w-full items-end p-4 text-sm leading-5 lg:p-8 2xl:w-4/5 2xl:text-lg'>
-          <p className='flex-1 sm:max-w-52 2xl:max-w-72'>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ipsam hic officiis minima quos magni iste
-            voluptatibus consequuntur omnis cumque illo!
+        <div className='mx-auto flex h-96 w-full items-end p-4 text-sm lg:p-8 2xl:w-4/5 2xl:text-lg'>
+          <p className='max-w-52 leading-5 2xl:max-w-72'>
+            <strong>Projects. </strong>This section presents projects showcasing work as a front-end developer, creative
+            developer, and designer, highlighting diverse skills in web-based solutions.
           </p>
         </div>
         <div className=' flex w-full flex-col border-b border-gray-600 font-mono leading-none'>
@@ -34,7 +34,7 @@ export default function Page() {
               className='cursor-pointer border-t border-gray-600 pb-3 hover:bg-red-100'
             >
               <Marquee autoFill className='z-0 overflow-hidden' direction={i % 2 === 0 ? 'right' : 'left'} speed={20}>
-                <span className='mr-4 text-9xl uppercase'>{el.title}</span>
+                <span className='mr-4 select-none text-9xl uppercase	'>{el.title}</span>
                 <div className='mr-4 mt-4 rounded border-2 border-gray-950'>
                   <Image src={el.imageUrl} alt='teapot' width={100 * el.ratio} height={100} />
                 </div>
@@ -50,7 +50,7 @@ export default function Page() {
         </p>
       </div>
       <div className='bg-gray-950'>
-        <div className='mx-auto flex w-full justify-between  p-4 font-mono text-4xl uppercase text-gray-100 lg:px-8 2xl:w-4/5 2xl:text-lg'>
+        <div className='mx-auto hidden w-full justify-between p-4 font-mono text-4xl uppercase text-gray-100 lg:flex lg:px-8 2xl:w-4/5 2xl:text-lg'>
           {/* <div className='w-24'>[1.{i < 5 ? '0' + (5 + i) : '' + (5 + i)}]</div> */}
           <div className='basis-1/4'>project name</div>
           <div className='basis-1/4'>working for</div>
@@ -59,13 +59,16 @@ export default function Page() {
         </div>
       </div>
       {otherProjects.map((el, i) => (
-        <div key={el.id} className='border-t border-gray-600'>
-          <div className='mx-auto flex w-full justify-between   p-4 font-mono text-4xl uppercase lg:px-8 2xl:w-4/5 2xl:text-lg'>
-            {/* <div className='w-24'>[1.{i < 5 ? '0' + (5 + i) : '' + (5 + i)}]</div> */}
-            <div className='basis-1/4 font-bold'>{el.name}</div>
-            <div className='basis-1/4'>{el.workingFor}</div>
-            <div className='basis-1/4'>{el.roles}</div>
-            <div className='w-24'>{el.year}</div>
+        <div key={el.id} className='border-t border-gray-400'>
+          <div className='mx-auto flex w-full flex-col  justify-between p-4 font-mono text-2xl uppercase lg:flex-row lg:px-8 lg:text-4xl 2xl:w-4/5 2xl:text-lg'>
+            <div className='font-bold lg:basis-1/4'>
+              {el.name} <span className='text-xl font-medium lg:hidden'>— {el.year}</span>
+            </div>
+            <span className='mt-4 font-sans text-sm normal-case lg:hidden'>working for:</span>
+            <div className='lg:basis-1/4'>{el.workingFor}</div>
+            <span className='mt-4 font-sans text-sm normal-case lg:hidden'>as:</span>
+            <div className='lg:basis-1/4'>{el.roles}</div>
+            <div className='hidden w-24 lg:block'>{el.year}</div>
           </div>
         </div>
       ))}
