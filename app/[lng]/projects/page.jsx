@@ -36,7 +36,7 @@ export default function Page() {
               <Marquee autoFill className='z-0 overflow-hidden' direction={i % 2 === 0 ? 'right' : 'left'} speed={20}>
                 <span className='mr-4 select-none text-9xl uppercase	'>{el.title}</span>
                 <div className='mr-4 mt-4 rounded border-2 border-gray-950'>
-                  <Image src={el.imageUrl} alt='teapot' width={100 * el.ratio} height={100} />
+                  <Image src={el.imageUrl} alt='teapot' width={100 * el.ratio} height={100} placeholder='blur' />
                 </div>
               </Marquee>
             </div>
