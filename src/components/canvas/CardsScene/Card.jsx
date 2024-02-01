@@ -18,7 +18,7 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
   const [activeIndex, setActiveIndex] = useState(0)
   const [hovered, hover] = useState(false)
   useCursor(hovered)
-  const ELAPSED_TIME = fast ? 2000 : 3500
+  const ELAPSED_TIME = fast ? 1500 : 3500
   useEffect(() => {
     const interval = setInterval(() => {
       const nextIndex = (activeIndex + 1) % positions.length

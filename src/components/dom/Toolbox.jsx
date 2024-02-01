@@ -3,8 +3,8 @@ import Pill from './Pill'
 
 const SimpleTable = ({ title, rows }) => {
   return (
-    <div className='mb-4 flex w-full flex-col border-t border-dashed border-gray-600 lg:flex-row'>
-      <div className='mb-8 mt-2 basis-1/4 border-b border-dashed border-gray-600 pb-8 font-mono lg:mb-0 lg:border-none lg:pb-0'>
+    <div className='mb-4 flex w-full flex-col border-t border-gray-500 first:border-none lg:flex-row'>
+      <div className='mb-8 mt-2 basis-1/4 border-b border-dashed border-gray-700 pb-8 font-mono lg:mb-0 lg:border-none lg:pb-0'>
         {title}
       </div>
       <div className='basis-3/4'>

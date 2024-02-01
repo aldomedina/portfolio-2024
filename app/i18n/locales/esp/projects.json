@@ -1,10 +1,10 @@
 {
   "intro": "<strong>Proyectos. </strong> Esta sección presenta proyectos que muestran el trabajo como desarrollador front-end, desarrollador creativo y diseñador, destacando habilidades diversas en soluciones basadas en la web.",
-  "intro-2": "La siguiente sección expone más experiencias laborales como desarrollador front-end y diseñador, enfocándose en una variedad de proyectos basados en la web.",
-  "header-name": "nombre del proyecto",
+  "intro-2": "<strong>Otros Proyectos. </strong>La siguiente sección expone más experiencias laborales como desarrollador front-end y diseñador, enfocándose en una variedad de proyectos basados en la web.",
+  "header-name": "proyecto",
   "header-working-for": "empleador",
   "header-role": "rol",
   "header-year": "año",
-  "mobile-working-for": "empleador",
+  "mobile-working-for": "empleador:",
   "mobile-as": "como:"
 }

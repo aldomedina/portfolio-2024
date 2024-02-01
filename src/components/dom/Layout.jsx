@@ -43,8 +43,8 @@ const Layout = ({ children, lng }) => {
             <Trans i18nKey={t('hero.contact')} />{' '}
             <a
               href='https://www.linkedin.com/in/aldo-medina-z/'
-              target='_blank'
               className='underline underline-offset-8 hover:text-orange-600'
+              target='_blank'
               rel='noreferrer noopener'
             >
               LINKEDIN

@@ -6,11 +6,10 @@ Command: npx gltfjsx@6.2.16 face.glb -T -S -S -d
 */
 
 import React, { useRef } from 'react'
-import { Environment, Lightformer, MeshTransmissionMaterial, useGLTF } from '@react-three/drei'
-import { easing } from 'maath'
+import { useGLTF } from '@react-three/drei'
+
 import { useFrame } from '@react-three/fiber'
 import { degToRad } from 'three/src/math/MathUtils'
-import { LayerMaterial, Depth, Fresnel } from 'lamina'
 
 const Face = (props) => {
   const ref = useRef(null)

@@ -15,7 +15,7 @@ const featuredProjects = [
     title: 'alumni vis',
     url: '/videos/alumni.mp4',
     imageUrl: '/img/alumni-fallback.webp',
-    ratio: 0.968,
+    ratio: 0.966,
     route: '/projects/uai-alumni-vis',
     body: "Design and Development of a data visualization and analysis tool for the Adolfo Ibáñez University's Design Faculty ALUMNI survey, designed to graphically display information and enable data disaggregation and correlation, facilitating detailed and comprehensive analysis.",
     blurDataUrl:
@@ -63,7 +63,7 @@ const otherProjects = [
     roles: 'FULL-STACK/DESIGNER',
     year: 2021,
     tools: ['Next.js', 'Three.js', 'Sass', 'Web3.js', 'Typescript', 'Sanity.io'],
-    body: 'pending',
+    body: 'Design and development of Fine Digitals website. Fine, a startup established following the acquisition of funding from the a16z crypto venture capital fund, specializes in the development of collaborative art projects. These projects are designed for trading across multiple blockchain platforms.',
   },
   {
     id: 'TEGRA118',
@@ -95,7 +95,6 @@ const otherProjects = [
     roles: 'FRONT-END',
     year: 2020,
     tools: ['Nuxt.js', 'Vue.js', 'Sass', 'Stripe'],
-    web: 'https://www.hatch.global/',
   },
   {
     id: 'Hatch',
@@ -128,7 +127,6 @@ const otherProjects = [
     roles: 'FRONT-END/DESIGNER',
     year: 2019,
     tools: ['Gatsby.js', 'Styled Components'],
-    web: 'https://www.hatch.global/',
   },
   {
     id: 'Post-ism',
