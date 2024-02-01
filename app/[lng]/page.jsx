@@ -83,7 +83,7 @@ export default function Page({ params: { lng } }) {
       </div>
       <div id='me' className='min-h-dvh  bg-gray-950	p-4 text-gray-100 lg:p-8		'>
         <div className='mb-8 flex flex-col font-mono leading-none'>
-          <span>[02]</span> <span className='ml-[-8px] text-[11vw]'>ME</span>{' '}
+          <span>[02]</span> <span className='ml-[-8px] text-[30vw] lg:text-[11vw]'>ME</span>{' '}
         </div>
         <div className='mx-auto flex flex-col justify-between gap-32  lg:flex-row xl:gap-64 2xl:w-4/5'>
           <div className='basis-1/3'>

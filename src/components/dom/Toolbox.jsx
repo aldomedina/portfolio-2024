@@ -4,14 +4,16 @@ import Pill from './Pill'
 const SimpleTable = ({ title, rows }) => {
   return (
     <div className='mb-4 flex w-full flex-col border-t border-dashed border-gray-600 lg:flex-row'>
-      <div className='mb-8 mt-2 basis-1/4 font-mono lg:mb-0'>{title}</div>
+      <div className='mb-8 mt-2 basis-1/4 border-b border-dashed border-gray-600 pb-8 font-mono lg:mb-0 lg:border-none lg:pb-0'>
+        {title}
+      </div>
       <div className='basis-3/4'>
         {rows.map((el, index) => (
           <div
             key={el.subtitle}
-            className={`flex flex-col lg:flex-row ${index < rows.length - 1 && 'border-b  border-dashed border-gray-600'} py-2`}
+            className={`flex  lg:flex-row ${index < rows.length - 1 && 'border-b  border-dashed border-gray-600'} py-2`}
           >
-            <div className='mb-4 basis-1/3 font-mono text-xl font-light lg:mb-0'>{el.subtitle}</div>
+            <div className='mb-4 basis-1/3  font-mono text-xl font-light lg:mb-0'>{el.subtitle}</div>
             <div className='flex basis-2/3 flex-wrap gap-2 py-1'>
               {el.items.map((item, i) => (
                 <Pill key={item}>{item}</Pill>
