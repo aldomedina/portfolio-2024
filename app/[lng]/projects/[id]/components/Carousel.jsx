@@ -19,12 +19,20 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 
 const Carousel = ({ cards }) => {
   return (
-    <View className='size-full'>
-      <Suspense fallback={null}>
-        <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} radius={2} />
-        <Common />
-      </Suspense>
-    </View>
+    <>
+      <View className='hidden size-full md:block'>
+        <Suspense fallback={null}>
+          <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} radius={2} shadows />
+          <Common />
+        </Suspense>
+      </View>
+      <View className='block size-full md:hidden'>
+        <Suspense fallback={null}>
+          <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} radius={2} />
+          <Common />
+        </Suspense>
+      </View>
+    </>
   )
 }
 

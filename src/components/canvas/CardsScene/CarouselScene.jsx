@@ -5,7 +5,7 @@ import { Card } from './Card'
 import { useFrame, useThree } from '@react-three/fiber'
 import { ContactShadows } from '@react-three/drei'
 
-const CarouselScene = ({ cards }) => {
+const CarouselScene = ({ cards, shadows }) => {
   const count = cards.length
   const group = useRef(null)
   const { width, height } = useThree((s) => s.size)
@@ -38,7 +38,7 @@ const CarouselScene = ({ cards }) => {
           />
         ))}
       </group>
-      <ContactShadows resolution={512} position={[0, -0.8, 0]} opacity={1} scale={10} blur={2} far={0.8} />
+      {shadows && <ContactShadows resolution={512} position={[0, -0.8, 0]} opacity={1} scale={10} blur={2} far={0.8} />}
     </>
   )
 }

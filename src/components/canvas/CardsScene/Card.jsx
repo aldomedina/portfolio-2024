@@ -54,7 +54,6 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
         hover(false)
       }}
       onClick={() => {
-        console.log('click', props.id)
         route && router.push(route)
       }}
     >
