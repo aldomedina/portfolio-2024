@@ -72,12 +72,12 @@ const featuredProjects = [
     images: {
       featured: { type: 'image', url: '/img/solids-fallback.webp', width: 1200, height: 751 },
       carousel: [
-        { id: 'solids1475', image: '/img/solids1475.webp', scale: [2.4, 2.4, 0.01] },
-        { id: 'solidsgrid12', image: '/img/solidsgrid12.webp', scale: [2.4, 2.4, 0.01] },
-        { id: 'solids1594', image: '/img/solids1594.webp', scale: [2.4, 2.4, 0.01] },
-        { id: 'solidsgrid6', image: '/img/solidsgrid6-1.webp', scale: [2.4, 2.4, 0.01] },
-        { id: 'solids8224', image: '/img/solids8224.webp', scale: [2.4, 2.4, 0.01] },
-        { id: 'solidsgrid6', image: '/img/solidsgrid6-2.webp', scale: [2.4, 2.4, 0.01] },
+        { id: 'solids1475', image: '/img/solids1475.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
+        { id: 'solidsgrid12', image: '/img/solidsgrid12.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
+        { id: 'solids1594', image: '/img/solids1594.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
+        { id: 'solidsgrid61', image: '/img/solidsgrid6-1.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
+        { id: 'solids8224', image: '/img/solids8224.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
+        { id: 'solidsgrid62', image: '/img/solidsgrid6-2.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
       ],
       final: { type: 'image', url: '/img/solidscity.webp', width: 4000, height: 2207 },
     },

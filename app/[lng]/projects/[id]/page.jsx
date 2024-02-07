@@ -31,7 +31,7 @@ export default async function Page({ params: { id, lng } }) {
               width={images.featured.width}
               height={images.featured.height}
               priority
-              className='rounded-xl'
+              className='rounded-xl border-8 border-gray-950'
             />
           ) : (
             <div>video</div>
@@ -57,7 +57,7 @@ export default async function Page({ params: { id, lng } }) {
           </div>
         </div>
       </div>
-      {images.carousel && (
+      {!!images.carousel.length && (
         <div className='relative h-dvh w-full'>
           <Carousel cards={images.carousel} />
           <div className=' absolute top-0 w-full text-center font-mono text-6xl uppercase'>

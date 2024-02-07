@@ -19,9 +19,12 @@ const CarouselScene = ({ cards, shadows }) => {
   useFrame((state, delta) => {
     const t = state.clock.getElapsedTime()
     const y = group.current.rotation.y + delta * 0.2
-    group.current.rotation.set(Math.cos(t / 4) / 12, y, 0.05 + Math.sin(t / 2) / 12)
-
-    group.current.position.y = (1.5 + Math.cos(t / 2)) / 7
+    if (shadows) {
+      group.current.rotation.set(Math.cos(t / 4) / 12, y, 0.05 + Math.sin(t / 2) / 12)
+      group.current.position.y = (1.5 + Math.cos(t / 2)) / 7
+    } else {
+      group.current.rotation.y = y
+    }
   })
 
   return (
