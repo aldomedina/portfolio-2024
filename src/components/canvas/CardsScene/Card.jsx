@@ -19,14 +19,16 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
   const [hovered, hover] = useState(false)
   useCursor(hovered)
   const ELAPSED_TIME = fast ? 1500 : 3500
+
   useEffect(() => {
     const interval = setInterval(() => {
+      if (imgTexture) return
       const nextIndex = (activeIndex + 1) % positions.length
       setActiveIndex(nextIndex)
     }, ELAPSED_TIME)
 
     return () => clearInterval(interval)
-  }, [activeIndex, positions.length, ELAPSED_TIME])
+  }, [activeIndex, ELAPSED_TIME])
 
   useFrame((state, delta) => {
     if (imgTexture) return
@@ -39,23 +41,28 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
   return (
     <group
       ref={ref}
-      position={imgTexture ? props.position : positions[0]}
+      position={imgTexture ? props.position : positions[0].map((axis) => axis * 8)}
       rotation={imgTexture ? props.rotation : [0, 0, 0]}
       onPointerOver={() => {
+        if (imgTexture) return
         setActiveProject(props.homeDisplay + ' →')
         hover(true)
       }}
       onPointerOut={() => {
+        if (imgTexture) return
         setActiveProject(false)
         hover(false)
       }}
-      onClick={() => router.push(route)}
+      onClick={() => {
+        console.log('click', props.id)
+        route && router.push(route)
+      }}
     >
-      <RoundedBox scale={scale} position-z={-0.06} castShadow receiveShadow>
+      <RoundedBox scale={scale} position-z={imgTexture ? -0.03 : -0.06} castShadow receiveShadow>
         <meshBasicMaterial color={hovered ? '#ea140c' : '#0D0F11'} />
       </RoundedBox>
       <mesh>
-        <roundedPlaneGeometry args={[scale[0] - 0.07, scale[1] - 0.07, imgTexture ? 0.03 : 0.06]} />
+        <roundedPlaneGeometry args={[scale[0] - 0.07, scale[1] - 0.07, imgTexture ? 0.04 : 0.06]} />
         {imgTexture ? (
           <Suspense
             fallback={
@@ -64,10 +71,10 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
               </Html>
             }
           >
-            <FallbackMaterial url={props.fallback} />
+            <FallbackMaterial url={props.image} />
           </Suspense>
         ) : (
-          <Suspense fallback={<FallbackMaterial url={props.fallback} />}>
+          <Suspense fallback={props.fallback ? <FallbackMaterial url={props.fallback} /> : null}>
             <VideoMaterial url={url} />
           </Suspense>
         )}

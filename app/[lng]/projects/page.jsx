@@ -11,6 +11,7 @@ import { Trans } from 'react-i18next'
 import { useTranslation } from '@/i18n/client'
 import Accordion from '@/components/dom/Accordion'
 import Pill from '@/components/dom/Pill'
+import { useRouter } from 'next/navigation'
 
 const CardsScene = dynamic(() => import('@/components/canvas/CardsScene').then((mod) => mod.CardsScene), { ssr: false })
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
@@ -22,6 +23,7 @@ const Common = dynamic(() => import('@/components/canvas/View').then((mod) => mo
 export default function Page({ params: { lng } }) {
   const { t } = useTranslation(lng, 'projects')
   const [active, setActive] = useState(false)
+  const { push } = useRouter()
   return (
     <>
       <div className='flex  flex-col'>
@@ -34,9 +36,10 @@ export default function Page({ params: { lng } }) {
           {featuredProjects.map((el, i) => (
             <div
               key={el.id}
+              onClick={() => push(el.route)}
               onPointerOver={() => setActive(el.id)}
               onPointerOut={() => setActive(false)}
-              className='cursor-pointer border-t border-gray-600 pb-3 hover:bg-orange-600'
+              className='cursor-pointer border-t border-gray-600 pb-3 sm:hover:bg-orange-600'
             >
               <Marquee autoFill className='z-0 overflow-hidden' direction={i % 2 === 0 ? 'right' : 'left'} speed={20}>
                 <span className='mr-4 select-none text-9xl uppercase	'>{el.title}</span>
@@ -81,7 +84,7 @@ export default function Page({ params: { lng } }) {
         <Accordion
           key={el.id}
           header={
-            <div key={el.id} className='cursor-pointer border-t border-gray-400 hover:bg-orange-600'>
+            <div key={el.id} className='cursor-pointer border-t border-gray-400 sm:hover:bg-orange-600'>
               <div className='mx-auto flex w-full flex-wrap gap-x-4 p-4 font-mono text-xl uppercase md:flex-nowrap md:justify-between  md:px-8 lg:text-4xl 2xl:w-4/5 2xl:text-lg'>
                 <div className='basis-full font-medium md:basis-1/4'>
                   <span className='text-xl font-normal md:hidden'>[{el.year}]</span> {el.name}
@@ -131,7 +134,7 @@ export default function Page({ params: { lng } }) {
                     href={el.web}
                     target='_blank'
                     rel='noreferrer noopener'
-                    className='font-mono text-xl hover:text-orange-600'
+                    className='font-mono text-xl sm:hover:text-orange-600'
                   >
                     {el.web}
                   </a>
@@ -143,7 +146,7 @@ export default function Page({ params: { lng } }) {
       ))}
 
       {active && (
-        <View className='pointer-events-none fixed inset-0 z-10 h-dvh w-full'>
+        <View className='pointer-events-none fixed inset-0 z-10 hidden h-dvh w-full sm:block'>
           <Suspense fallback={null}>
             <CardsScene scale={2} position={[0, 0, 0]} cards={cards.filter((el) => el.id === active)} fast />
             <Common />

@@ -6,5 +6,9 @@
   "header-role": "rol",
   "header-year": "año",
   "mobile-working-for": "empleador:",
-  "mobile-as": "como:"
+  "mobile-as": "como:",
+  "wargames-body": "Wargames es un proyecto de Arte Generativo participativo donde los poseedores de tokens de Wargames pueden interactuar con un algoritmo y co-crear resultados que pertenecerán a la Colección Generativa de Wargames. Además, los poseedores de tokens podrán crear sus propias colecciones.",
+  "alumni-vis-body": "Diseño y desarrollo de una herramienta de visualización de datos para la encuesta de ALUMNI de la Facultad de Diseño de la Universidad Adolfo Ibáñez, diseñada para mostrar gráficamente la información y permitir la desagregación y correlación de datos, facilitando un análisis detallado y exhaustivo.",
+  "solids-body": "El sitio web para la exposición y comercialización del proyecto de arquitectura generativa 'SOLIDS' de 0xFAR se diseñó con características avanzadas para realzar la experiencia del usuario. Entre sus funcionalidades más destacadas, el sitio incorpora escenas 3D generativas que se adaptan dinámicamente a las características específicas de la arquitectura presentada. Además, el sitio está equipado con una serie de integraciones con tecnología web3, lo que permite una interacción más rica y segura para los usuarios interesados en explorar y adquirir obras de este innovador proyecto arquitectónico.",
+  "teapot-body": "Diseño y desarrollo de UTAH'S ODYSSEY, un proyecto de arte generativo de 0xFAR, que hace referencia a la historia de los gráficos por computadora. La obra será lanzada próximamente."
 }

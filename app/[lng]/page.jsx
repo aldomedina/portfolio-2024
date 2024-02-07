@@ -18,7 +18,7 @@ const CarouselScene = dynamic(
     ssr: false,
   },
 )
-const Face = dynamic(() => import('@/components/canvas/Face').then((mod) => mod.Face), { ssr: false })
+
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
   loading: () => <Spinner />,
@@ -32,11 +32,11 @@ export default function Page({ params: { lng } }) {
     <>
       <div className='flex h-dvh flex-col'>
         <div className='relative  h-4/5 overflow-hidden'>
-          <div className='absolute left-4 top-0 hidden size-full items-end font-mono font-medium uppercase leading-none lg:flex	  '>
+          {/* <div className='absolute left-4 top-0 hidden size-full items-end font-mono font-medium uppercase leading-none lg:flex	  '>
             <span className='text-[21vw] lg:text-[11vw]'>
               <Trans i18nKey={t('hero')} />
             </span>
-          </div>
+          </div> */}
         </div>
         <div className='mx-auto flex w-full flex-auto flex-col justify-between gap-8 p-4 text-sm leading-5 sm:flex-row lg:gap-16 lg:p-8 2xl:w-4/5 2xl:text-lg'>
           <div className='hidden max-w-52 flex-1 sm:block 2xl:max-w-72'>
@@ -72,7 +72,7 @@ export default function Page({ params: { lng } }) {
           </View>
           <View className='relative block h-full md:hidden'>
             <Suspense fallback={null}>
-              <CarouselScene scale={2} position={[0, 0, 0]} />
+              <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} />
               <Common />
             </Suspense>
           </View>
