@@ -46,12 +46,12 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
       position={imgTexture ? props.position : positions[0].map((axis) => axis * 8)}
       rotation={imgTexture ? props.rotation : [0, 0, 0]}
       onPointerOver={() => {
-        if (imgTexture) return
+        if (imgTexture || !route) return
         setActiveProject(props.homeDisplay + ' →')
         hover(true)
       }}
       onPointerOut={() => {
-        if (imgTexture) return
+        if (imgTexture || !route) return
         setActiveProject(false)
         hover(false)
       }}

@@ -41,7 +41,17 @@ const Toolbox = () => {
           { subtitle: 'STYLING', items: ['SASS', 'STYLED-COMPONENTS', 'TAILWIND CSS', 'CSS MODULES'] },
           {
             subtitle: 'OTHERS',
-            items: ['TYPESCRIPT', 'JEST', 'CYPRESS', 'GRAPHQL', 'REDUX', 'ZUSTAND', 'EXPRESS.JS', 'SOCKETS.IO'],
+            items: [
+              'TYPESCRIPT',
+              'JEST',
+              'CYPRESS',
+              'GRAPHQL',
+              'REDUX',
+              'ZUSTAND',
+              'EXPRESS.JS',
+              'SOCKETS.IO',
+              'NODE.JS',
+            ],
           },
         ]}
       />
@@ -57,7 +67,7 @@ const Toolbox = () => {
           { subtitle: 'PRINT', items: ['ADOBE INDESIGN'] },
         ]}
       />
-      <SimpleTable
+      {/* <SimpleTable
         title={
           <div className='flex flex-col'>
             <span>[2.3]</span> <span className='text-2xl'> DATA</span>
@@ -70,7 +80,7 @@ const Toolbox = () => {
       />
       <div className='my-20 flex w-56 justify-end border-t border-gray-600 pt-4 text-gray-400 '>
         *No professional experience
-      </div>
+      </div> */}
     </div>
   )
 }
