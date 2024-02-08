@@ -11,13 +11,14 @@ const Nav = ({ lng }) => {
   const pathname = usePathname()
 
   const handleMeClick = () => {
-    if (pathname !== '/') {
+    if (pathname !== '/en' && pathname !== '/esp' && pathname !== '/pt') {
       router.push('/#me')
     } else {
       const element = document.getElementById('me')
       element?.scrollIntoView({ behavior: 'smooth', block: 'start', inline: 'nearest' })
     }
   }
+
   return (
     <div className='absolute left-0 top-0 w-full font-medium'>
       <div className='mx-auto flex  justify-between  p-4 font-mono md:px-8 2xl:w-4/5'>
