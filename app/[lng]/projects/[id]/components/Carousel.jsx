@@ -10,6 +10,12 @@ const CarouselScene = dynamic(
     ssr: false,
   },
 )
+const DesktopCarouselScene = dynamic(
+  () => import('@/components/canvas/CardsScene/DesktopCarouselScene').then((mod) => mod.DesktopCarouselScene),
+  {
+    ssr: false,
+  },
+)
 
 const View = dynamic(() => import('@/components/canvas/View').then((mod) => mod.View), {
   ssr: false,
@@ -22,7 +28,7 @@ const Carousel = ({ cards }) => {
     <>
       <View className='hidden size-full md:block'>
         <Suspense fallback={null}>
-          <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} radius={2} shadows />
+          <DesktopCarouselScene cards={cards} />
           <Common />
         </Suspense>
       </View>

@@ -38,7 +38,7 @@ const Card = ({ imgTexture = false, fast = false, url, scale, route, positions, 
     ref.current.position.z = lerp(ref.current.position.z, positions[activeIndex][2], delta * velocity)
   })
 
-  if (!scale[0]) return null
+  if (!scale[0] || !scale[1]) return null
 
   return (
     <group

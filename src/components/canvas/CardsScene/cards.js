@@ -69,7 +69,7 @@ const cards = [
     id: 'solids',
     title: 'solids',
     url: '/videos/solids-ui-compressed.mp4',
-    image: '/img/solids-fallback.webp',
+    image: '/img/solidsgrid12.webp',
     ratio: 1.6,
     firstPos: [-2, 0.8, -0.3],
     positions: [

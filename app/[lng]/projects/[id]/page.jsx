@@ -61,12 +61,12 @@ export default async function Page({ params: { id, lng } }) {
         <div className='relative h-dvh w-full'>
           <Carousel cards={images.carousel} />
           <div className=' absolute top-0 w-full text-center font-mono text-6xl uppercase'>
-            <Marquee autoFill>
+            <Marquee autoFill className='overflow-hidden'>
               <span className='mr-3'>PROJECT OUTPUTS</span>
             </Marquee>
           </div>
           <div className=' absolute bottom-0 w-full text-center font-mono text-6xl uppercase'>
-            <Marquee autoFill>
+            <Marquee autoFill className='overflow-hidden'>
               <span className='mr-3'>PROJECT OUTPUTS</span>
             </Marquee>
           </div>
