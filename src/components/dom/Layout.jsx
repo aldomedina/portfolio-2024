@@ -1,5 +1,4 @@
 'use client'
-
 import { useRef } from 'react'
 import dynamic from 'next/dynamic'
 import Nav from './Nav'

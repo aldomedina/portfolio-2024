@@ -3,6 +3,7 @@ import { Inter, Barlow_Condensed } from 'next/font/google'
 import './global.css'
 import { dir } from 'i18next'
 import { languages } from '@/i18n/settings'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 
 export const metadata = {
   title: 'Aldo - Design & Development',
@@ -38,6 +39,7 @@ export default function RootLayout({ children, params: { lng } }) {
       <body>
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         <Layout lng={lng}>{children}</Layout>
+        <SpeedInsights />
       </body>
     </html>
   )
