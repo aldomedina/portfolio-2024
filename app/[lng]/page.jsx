@@ -73,12 +73,11 @@ export default function Page({ params: { lng } }) {
           <View className='relative block h-full md:hidden'>
             <Suspense fallback={null}>
               <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} />
-              <Common />
             </Suspense>
           </View>
         </div>
       </div>
-      <div className='flex gap-8 bg-gray-950 p-2 font-mono text-4xl leading-none text-gray-100	'>
+      <div className='hidden gap-8 bg-gray-950 p-2 font-mono text-4xl leading-none text-gray-100 md:flex	'>
         <MarqueeBaner />
       </div>
       <div id='me' className='min-h-dvh  bg-gray-950	p-4 text-gray-100 lg:p-8		'>

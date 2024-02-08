@@ -3,6 +3,7 @@
 import { forwardRef, Suspense, useImperativeHandle, useRef } from 'react'
 import { Environment, OrbitControls, PerspectiveCamera, View as ViewImpl } from '@react-three/drei'
 import { Three } from '@/helpers/components/Three'
+import { degToRad } from 'three/src/math/MathUtils'
 
 export const Common = ({ color }) => (
   <Suspense fallback={null}>
@@ -24,7 +25,14 @@ const View = forwardRef(({ children, orbit, ...props }, ref) => {
       <Three>
         <ViewImpl track={localRef}>
           {children}
-          {orbit && <OrbitControls enableZoom={false} />}
+          {orbit && (
+            <OrbitControls
+              enableZoom={false}
+              maxPolarAngle={degToRad(100)}
+              minPolarAngle={degToRad(80)}
+              enablePan={false}
+            />
+          )}
         </ViewImpl>
       </Three>
     </>

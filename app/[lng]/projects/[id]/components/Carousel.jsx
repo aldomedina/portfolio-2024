@@ -35,7 +35,6 @@ const Carousel = ({ cards }) => {
       <View className='block size-full md:hidden'>
         <Suspense fallback={null}>
           <CarouselScene scale={2} position={[0, 0, 0]} cards={cards} radius={2} />
-          <Common />
         </Suspense>
       </View>
     </>
