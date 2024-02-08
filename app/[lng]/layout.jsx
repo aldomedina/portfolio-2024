@@ -4,6 +4,7 @@ import './global.css'
 import { dir } from 'i18next'
 import { languages } from '@/i18n/settings'
 import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 
 export const metadata = {
   title: 'Aldo - Design & Development',
@@ -40,6 +41,7 @@ export default function RootLayout({ children, params: { lng } }) {
         {/* To avoid FOUT with styled-components wrap Layout with StyledComponentsRegistry https://beta.nextjs.org/docs/styling/css-in-js#styled-components */}
         <Layout lng={lng}>{children}</Layout>
         <SpeedInsights />
+        <Analytics />
       </body>
     </html>
   )
