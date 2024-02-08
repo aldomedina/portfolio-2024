@@ -34,7 +34,10 @@ export default async function Page({ params: { id, lng } }) {
               className='rounded-xl border-8 border-gray-950'
             />
           ) : (
-            <div>video</div>
+            <video className='w-full' autoPlay muted loop>
+              <source src={images.featured.url} type='video/mp4' />
+              Your browser does not support the video tag.
+            </video>
           )}
         </div>
         <div className='basis-1/3'>
@@ -59,22 +62,24 @@ export default async function Page({ params: { id, lng } }) {
       </div>
       {!!images.carousel.length && (
         <div className='relative h-dvh w-full'>
-          <Carousel cards={images.carousel} />
+          <div className='mx-auto size-full 2xl:w-4/5'>
+            <Carousel cards={images.carousel} />
+          </div>
           <div className=' absolute top-0 w-full text-center font-mono text-6xl uppercase'>
-            <Marquee autoFill className='overflow-hidden'>
+            <Marquee autoFill className='overflow-hidden border-y border-gray-950 pb-1'>
               <span className='mr-3'>PROJECT OUTPUTS</span>
             </Marquee>
           </div>
           <div className=' absolute bottom-0 w-full text-center font-mono text-6xl uppercase'>
-            <Marquee autoFill className='overflow-hidden'>
+            <Marquee autoFill className='overflow-hidden border-y border-gray-950 pb-1'>
               <span className='mr-3'>PROJECT OUTPUTS</span>
             </Marquee>
           </div>
         </div>
       )}
       <div className='w-full bg-gray-950  text-gray-100  '>
-        <div className='mx-auto flex min-h-dvh  w-full items-center gap-16 bg-gray-950  p-4 text-gray-100  md:p-24 2xl:w-4/5 2xl:text-lg '>
-          {images.featured.type === 'image' ? (
+        <div className='mx-auto flex min-h-dvh  w-full items-center justify-center gap-16 bg-gray-950  p-4 text-gray-100  md:p-24 2xl:w-4/5 2xl:text-lg '>
+          {images.final.type === 'image' ? (
             <Image
               src={images.final.url}
               alt='project hero'
@@ -84,7 +89,10 @@ export default async function Page({ params: { id, lng } }) {
               className='rounded-xl'
             />
           ) : (
-            <div>video</div>
+            <video className='max-w-[50%]' autoPlay muted loop>
+              <source src={images.final.url} type='video/mp4' />
+              Your browser does not support the video tag.
+            </video>
           )}
         </div>
       </div>
