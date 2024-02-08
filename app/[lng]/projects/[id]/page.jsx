@@ -86,7 +86,7 @@ export default async function Page({ params: { id, lng } }) {
               width={images.final.width}
               height={images.final.height}
               priority
-              className='rounded-xl'
+              className='rounded md:rounded-xl'
             />
           ) : (
             <video className='max-w-[50%]' autoPlay muted loop>
