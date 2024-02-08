@@ -11,7 +11,7 @@ const SimpleTable = ({ title, rows }) => {
         {rows.map((el, index) => (
           <div
             key={el.subtitle}
-            className={`flex  lg:flex-row ${index < rows.length - 1 && 'border-b  border-dashed border-gray-600'} py-2`}
+            className={`flex gap-4 lg:flex-row ${index < rows.length - 1 && 'border-b  border-dashed border-gray-600'} py-2`}
           >
             <div className='mb-4 basis-1/3  font-mono text-xl font-light lg:mb-0'>{el.subtitle}</div>
             <div className='flex basis-2/3 flex-wrap gap-2 py-1'>
