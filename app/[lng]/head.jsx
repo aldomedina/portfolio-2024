@@ -2,6 +2,7 @@ const title = 'ALDO - DESIGN & DEVELOPMENT'
 const url = 'aldomedina.design'
 const description = 'Portfolio. Front-end focused on creative development and UX UI design. Creative Developer.'
 const author = 'Aldo Medina'
+const keywords = 'Front End,Developer,Full Stack,Data Scientist,UX UI Designer'
 
 export default function Head() {
   return (
@@ -17,10 +18,7 @@ export default function Head() {
       {/* Search Engine Optimization Meta Tags */}
       <title>{title}</title>
       <meta name='description' content={description} />
-      <meta
-        name='keywords'
-        content='Software Engineer,Product Manager,Project Manager,Data Scientist,Computer Scientist'
-      />
+      <meta name='keywords' content={keywords} />
       <meta name='robots' content='index,follow' />
       <meta name='distribution' content='web' />
       {/* 
@@ -32,13 +30,17 @@ export default function Head() {
       <meta property='og:image' content={'/icons/share.png'} />
       <meta property='og:site_name' content={title} />
       <meta property='og:description' content={description} />
+      <link rel='icon' type='image/png' href='/icons/favicon-196x196.png' sizes='196x196' />
+      <link rel='icon' type='image/png' href='/icons/favicon-96x96.png' sizes='96x96' />
+      <link rel='icon' type='image/png' href='/icons/favicon-32x32.png' sizes='32x32' />
+      <link rel='icon' type='image/png' href='/icons/favicon-16x16.png' sizes='16x16' />
+      <link rel='icon' type='image/png' href='/icons/favicon-128.png' sizes='128x128' />
 
       <link rel='apple-touch-icon' href='/icons/apple-touch-icon.png' />
       <link rel='apple-touch-icon' sizes='16x16' href='/icons/favicon-16x16.png' />
       <link rel='apple-touch-icon' sizes='32x32' href='/icons/favicon-32x32.png' />
       <link rel='apple-touch-icon' sizes='180x180' href='/icons/apple-touch-icon.png' />
       <link rel='manifest' href='/manifest.json' />
-      <link rel='mask-icon' color='#000000' href='/icons/safari-pinned-tab.svg' />
       <link rel='apple-touch-startup-image' href='/startup.png' />
 
       {/* Meta Tags for HTML pages on Mobile */}
