@@ -8,7 +8,7 @@ const featuredProjects = [
     imageUrl: '/img/wargames-fallback.webp',
     ratio: 1.88,
     route: '/projects/wargames',
-    tools: ['JAVASCRIPT', 'THREE.JS', 'R3F', 'WEB3.JS', 'GLSL'],
+    tools: ['JAVASCRIPT', 'THREE.JS', 'R3F', 'WEB3.JS', 'GLSL', 'TYPESCRIPT', 'ZUSTAND'],
     links: [],
     images: {
       featured: { type: 'image', url: '/img/wargamesfinal.webp', width: 3024, height: 1728 },
@@ -58,7 +58,7 @@ const featuredProjects = [
     imageUrl: '/img/solids-fallback.webp',
     ratio: 1.6,
     route: '/projects/solids',
-    tools: ['JAVASCRIPT', 'THREE.JS', 'R3F', 'WEB3.JS'],
+    tools: ['JAVASCRIPT', 'THREE.JS', 'R3F', 'WEB3.JS', 'TYPESCRIPT'],
     links: [
       {
         tag: 'PROJECT WEBITE',
