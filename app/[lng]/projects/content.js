@@ -70,7 +70,7 @@ const featuredProjects = [
       },
     ],
     images: {
-      featured: { type: 'image', url: '/img/solids-fallback.webp', width: 1200, height: 751 },
+      featured: { type: 'video', url: '/videos/solids-ui-compressed.mp4' },
       carousel: [
         { id: 'solids1475', image: '/img/solids1475.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
         { id: 'solidsgrid12', image: '/img/solidsgrid12.webp', scale: [2.4, 2.4, 0.01], position: [1, 1, 1] },
