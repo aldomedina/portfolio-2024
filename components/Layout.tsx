@@ -2,6 +2,7 @@ import { Variants, motion } from 'framer-motion'
 import { PropsWithChildren } from 'react'
 import Nav from './Nav'
 import Footer from './Footer'
+import CommonHead from './CommonHead'
 
 const anim = (variants: Variants, custom?: number) => {
   return {
@@ -52,6 +53,7 @@ const nbOfColumns = 5
 
 const Layout = ({ children }: PropsWithChildren) => (
   <div className='min-h-dvh'>
+    <CommonHead />
     <motion.div {...anim(opacity)} className='pointer-events-none fixed left-0 top-0 h-dvh w-screen bg-black' />
     <div className='pointer-events-none fixed left-0 top-0 z-[2] flex h-screen w-screen'>
       {[...Array(nbOfColumns)].map((_, i) => {

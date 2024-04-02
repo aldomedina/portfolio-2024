@@ -1,11 +1,10 @@
-import CommonHead from '@/components/CommonHead'
-import Layout from '@/components/Layout'
-import Toolbox from '@/components/Toolbox'
-import CardsScene from '@/components/canvas/CardsScene'
 import { GetStaticProps } from 'next'
 import { useTranslation, Trans } from 'next-i18next'
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import Marquee from 'react-fast-marquee'
+import Layout from '@/components/Layout'
+import Toolbox from '@/components/Toolbox'
+import CardsScene from '@/components/canvas/CardsScene'
 
 export const getStaticProps: GetStaticProps = async ({ locale }) => ({
   props: {
@@ -18,7 +17,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <CommonHead />
       <div className='flex h-dvh flex-col'>
         <div className='relative  h-4/5 overflow-hidden' />
         <div
