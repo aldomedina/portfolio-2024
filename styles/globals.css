@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  background-color: rgb(234 88 12);
+}
+
+.box {
+  @apply mx-auto w-full p-4 lg:p-8 2xl:w-4/5;
+}
+
+.txt-sm {
+  @apply text-sm leading-5 2xl:text-lg;
+}
+
+.hide-scroll-bar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.hide-scroll-bar::-webkit-scrollbar {
+  display: none;
+}
