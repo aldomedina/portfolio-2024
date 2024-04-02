@@ -4,6 +4,8 @@ import type { AppProps } from 'next/app'
 import { Inter, Barlow_Condensed } from 'next/font/google'
 import { useRouter } from 'next/router'
 import { appWithTranslation } from 'next-i18next'
+import { SpeedInsights } from '@vercel/speed-insights/next'
+import { Analytics } from '@vercel/analytics/react'
 
 const inter = Inter({
   subsets: ['latin'],
@@ -42,11 +44,16 @@ const App = ({ Component, pageProps }: AppProps) => {
   const router = useRouter()
 
   return (
-    <div className={`h-full antialiased ${inter.variable} ${condensed.variable} bg-gray-200 font-sans text-gray-950`}>
-      <AnimatePresence mode='wait' initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
-        <Component {...pageProps} />
-      </AnimatePresence>
-    </div>
+    <>
+      <div className={`h-full antialiased ${inter.variable} ${condensed.variable} bg-gray-200 font-sans text-gray-950`}>
+        <AnimatePresence mode='wait' initial={false} onExitComplete={() => window.scrollTo(0, 0)}>
+          <Component {...pageProps} />
+        </AnimatePresence>
+      </div>
+      {/* vercel metrics */}
+      <SpeedInsights />
+      <Analytics />
+    </>
   )
 }
 export default appWithTranslation(App)
