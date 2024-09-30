@@ -301,6 +301,7 @@ const otherProjects = [
     roles: 'FRONT-END/DESIGNER',
     year: 2019,
     tools: ['Gatsby.js', 'Styled Components'],
+    web: 'https://www.behance.net/gallery/109486927/EXTRAI-Visual-Identity'
   },
   {
     id: 'Post-ism',
